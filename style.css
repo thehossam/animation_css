@@ -1,0 +1,115 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    background-color: #0099ff;
+    height: 100vh;
+    overflow: hidden;
+
+}
+.x{
+    width: 300px;
+    height: 10px;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: rgba(255, 255, 255, 0.329);
+    border-radius: 20px;
+    animation: rotatex 20s linear infinite;
+}
+.y{
+    width: 300px;
+    height: 10px;
+    position: relative;
+    top: calc(50% + 10px);
+    left: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    background-color: rgba(255, 255, 255, 0.329);
+    border-radius: 20px;
+    animation: rotatey 20s linear infinite;
+}
+div{
+
+
+}
+div > span{
+    background-color: grey;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    display: block;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+div > span::before{
+    content: "hallo world";
+    width: 100px;
+    position: absolute;
+    right: -30px;
+    top: -50px;
+    height: 20px;
+    text-align: center;
+    background-color: lightcoral;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 6px;
+    z-index: 10;
+    display: none;
+}
+div > span:hover::before{
+    display: block;
+}
+div > span:first-child{
+   left: 0;
+   animation: pos-left 10s linear infinite alternate-reverse;
+}
+div > span:last-child{
+    right: 0;
+    animation: pos-right 10s linear infinite alternate-reverse;
+}
+
+@keyframes rotatex{
+    0%{
+        top: 0 ;
+        left: 0%;
+        transform:  translate(-50%, -50%) rotate(0deg);
+    }
+    100%{
+        top: 100%;
+        left: 100%;
+        transform:  translate(-50%, -50%) rotate(360deg);
+    }
+}
+@keyframes rotatey{
+    0%{
+        top: 0;
+        left: 0%;
+        transform:  translate(-50%, -50%) rotate(90deg);
+    }
+    100%{
+        top: 100%;
+        left: 100%;
+        transform:  translate(-50%, -50%) rotate(450deg);
+    }
+}
+@keyframes pos-left{
+    0%{
+        left: 0;
+    }
+    100%{
+        left: 50% ;
+    }
+}
+@keyframes pos-right{
+    0%{
+        right: 0;
+    }
+    100%{
+        right: 50% ;
+    }
+}
